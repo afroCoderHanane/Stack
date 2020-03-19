@@ -71,12 +71,13 @@ for (int i = 0; i <exp.length(); i++) //start of for loop
 
                int value = 0; //holds total digit
 
-               value = (value * 10) + (exp[i] - '0');   // always sets digit
+              // value = (value * 10) + (exp[i] - '0');   // always sets digit
+               value = exp[i]-'0';
               
                while (i < exp.length() && isdigit(exp[i + 1]))  // for numbers that aren't single digits
                {
                      value = (value * 10) + (exp[i + 1] - '0');
-
+                     //value = exp[i+1]-'0';
                      i++;
                }
 
@@ -93,9 +94,9 @@ for (int i = 0; i <exp.length(); i++) //start of for loop
 
                }
 
-               operators.pop();       //closes (..) by popping ')'
+               operators.pop();       //closes by popping ')'
 
-         }/* Finds negative digit if current 'i' is 0 index or if right char is any symbol besides ')' */
+         }
          else if (exp[i] == '-' && (i == 0 || (exp[i - 1] >= '(' && exp[i - 1] <= '/' && exp[i - 1] != ')')))
          {
                while (i < exp.length())
